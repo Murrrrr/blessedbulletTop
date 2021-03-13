@@ -1,0 +1,456 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    color: #000;
+    font-family: 'Raleway', 'sans-serif';
+    font-size: 16px;
+    width: 100%;
+    -webkit-tap-highlight-color : transparent;
+    outline: none;
+}
+
+a {
+    display: block;
+    text-decoration: none;
+    color: #000;
+}
+
+// 변수 파트 =========================
+
+$header-height_rem : 3.125rem;
+$header-height_px : 50px;
+
+$hamburger_menu_width_rem : 1.25rem;
+$hamburger_menu_width_px : 40px;
+$hamburger_menu_height_rem : 0.75rem;
+$hamburger_menu_height_px : 12px;
+
+$submenu_list_fontsize_px : 15px;
+$submenu_list_fontsize_rem : 0.9375rem; 
+
+// 모바일 스타일 시트 =========================
+
+header {
+    top: 0;
+    background-color: #fff;
+    z-index: 999;
+    position: fixed;
+    width: 100%;
+    height: $header-height_px;
+    height: $header-height_px;
+
+    .header_wrap {
+        align-items: center;
+        display: flex;
+        margin: 0 auto;
+        width: 88%;
+        height: 100%;
+
+        .header_wrap_leftside {
+            order: 1;
+            width: 30%;
+
+            
+            .header_menu{
+                display: none;
+            }
+
+            .hamburger_menu {
+                position: relative;
+                width: $hamburger_menu_width_rem;
+                width: $hamburger_menu_width_px;
+
+                height: $hamburger_menu_height_rem;
+                height: $hamburger_menu_height_px;
+                cursor: pointer;
+
+                .line {
+                    position: absolute;
+                    width: $hamburger_menu_width_px;
+                    width: $hamburger_menu_width_rem;
+
+                    height: 1px;
+                    height: 0.0625rem;
+
+                    background-color: #000;
+                    transition: all 0.5s;
+
+                    &#top { top: 0px;}
+
+                    &#middle { 
+                        top: $hamburger_menu_height_rem/2;
+                        top: $hamburger_menu_height_px/2;
+                    }
+
+                    &#bottom {
+                        top: $hamburger_menu_height_rem;
+                        top: $hamburger_menu_height_px;
+                    }
+                }
+            }
+        }
+
+        .logo { 
+            order: 2; 
+            width: 40%;
+            text-align: center;
+
+            a{
+                img { width: 80%; }
+            }
+            
+        }
+
+        .header_wrap_rightside {
+            order: 3;
+            width: 30%;
+
+            .menu_icons {
+                display: flex;
+                justify-content: flex-end;
+
+                a {width: auto;
+
+                    .fas {
+                        margin-left: $submenu_list_fontsize_rem;
+                        margin-left: $submenu_list_fontsize_px ;
+                        font-size: 0.75rem;
+                    }
+                }
+            }
+
+            ul{
+                display:none;
+            }
+        }
+    }
+
+    .header_submenu{
+        
+        display:none;
+        z-index: 100;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        background-color: rgba( 40, 40, 40, 0.8);
+        top: $header-height_px;
+        top: $header-height_rem;
+
+        &.active{
+            display:block;
+        }
+
+        .submenu_list{
+            transition: all 0.5s;
+            left:-50%;
+            position:fixed;
+            background-color: #fff;
+            width: 50%;
+            height: 100%;
+
+            li{
+                margin: 0 auto;
+                width: 77%;
+                border-bottom: 1px solid #d8d8d8;
+                
+                a{
+                    font-size: $submenu_list_fontsize_px;
+                    font-size: $submenu_list_fontsize_rem;
+                    padding: $submenu_list_fontsize_px/2*3 0;
+                    padding: $submenu_list_fontsize_rem/2*3 0;
+
+                    
+                }
+            }
+        }
+    }
+}
+
+.shop_submenu_list{
+    transition: all 0.5s;
+    position:fixed;
+    top: 50px;
+    left:-50%;
+    width: 50%;
+    background-color: #fff;
+    height: 100%;
+}
+
+// 태블릿 =====================================
+@media all and (min-width: 768px){
+    
+    // 변수 파트 =========================
+    $header-height_rem : 6.25rem;
+    $header-height_px : 100px;
+
+    $hamburger_menu_width_rem : 2.5rem;
+    $hamburger_menu_width_px : 40px;
+    $hamburger_menu_height_rem : 1.5rem;
+    $hamburger_menu_height_px : 24px;
+    
+    $submenu_list_fontsize_px : 20px;
+    $submenu_list_fontsize_rem : 1.25rem; 
+
+    // 태블릿 스타일 시트 =========================
+    header {
+        height: $header-height_rem;
+        height: $header-height_px;
+    
+        .header_wrap {
+    
+            .header_wrap_leftside {
+
+
+                .hamburger_menu {
+                    width: $hamburger_menu_width_rem;
+                    width: $hamburger_menu_width_px;
+
+                    height: $hamburger_menu_height_rem;
+                    height: $hamburger_menu_height_px;
+                    
+                    .line {
+                        width: $hamburger_menu_width_rem;
+                        width: $hamburger_menu_width_px;
+    
+                        &#top { top: 0px;}
+    
+                        &#middle { 
+                            top: $hamburger_menu_height_px/2;
+                            top: $hamburger_menu_height_rem/2;}
+    
+                        &#bottom {
+                            top: $hamburger_menu_height_px;
+                            top: $hamburger_menu_height_rem;
+                        }
+                    }
+                }
+            }
+    
+            .logo { 
+                a{
+                    img { width: 80%; }
+                }
+            }
+    
+            .header_wrap_rightside {
+                .menu_icons {
+                    a {
+                        .fas {
+                            margin-left: $submenu_list_fontsize_rem ;
+                            margin-left: $submenu_list_fontsize_px ;
+                            font-size: 1.25rem;
+                        }
+                    }
+                }
+
+
+            }
+        }
+    
+        .header_submenu{
+            
+            top: $header-height_px;
+            top: $header-height_rem;
+    
+            .submenu_list{
+    
+                li{
+                    a{
+                    font-size: $submenu_list_fontsize_px;
+                    font-size: $submenu_list_fontsize_rem;
+                    padding: $submenu_list_fontsize_px/2*3 0;
+                    padding: $submenu_list_fontsize_rem/2*3 0;
+                    }
+                }
+            }
+        }
+    }
+
+    .shop_submenu_list{
+        top: $header-height_px;
+        top: $header-height_rem;
+    }
+}
+
+@media all and (min-width: 1024px){
+    
+    // 변수 파트 =========================
+    $header-height_rem : 6.25rem;
+    $header-height_px : 100px;
+    
+    $submenu_list_fontsize_px : 25px;
+    $submenu_list_fontsize_rem : 1.5625rem; 
+
+    // 태블릿 스타일 시트 =========================
+    header {
+        height: $header-height_rem;
+        height: $header-height_px;
+    
+        .header_wrap {
+    
+            .header_wrap_leftside {
+                width: 35%;
+                .hamburger_menu { display:none; }
+
+                .header_menu{
+                    display:flex;
+                    justify-content: space-between;
+                    li{
+                        width: auto;
+                        a{
+                            padding: 10px 0;
+                            font-size: 0.75rem;
+                            font-size: 12px;
+                        }
+                    }
+                }
+            }
+
+            .logo { 
+                width: 30%;
+                a{
+                    width: auto;
+                    img { width: 70%; }
+                }
+            }
+    
+            .header_wrap_rightside {
+                width: 35%;
+                .menu_icons {display:none;}
+
+                ul{
+                    display: flex;
+                    justify-content: flex-end;
+                    li{
+                        margin-left: 10px;
+                        width: auto;
+                        a{
+                            font-size: 0.75rem;
+                            font-size: 12px;
+                            padding: 10px;
+                        }
+                    }
+                }
+            }
+        }
+    
+        .header_submenu{
+            
+            top: $header-height_px;
+            top: $header-height_rem;
+    
+            .submenu_list{
+    
+                li{
+                    a{
+                    font-size: $submenu_list_fontsize_px;
+                    font-size: $submenu_list_fontsize_rem;
+                    padding: $submenu_list_fontsize_px/2*3 0;
+                    padding: $submenu_list_fontsize_rem/2*3 0;
+                    }
+                }
+            }
+        }
+    }
+
+    .shop_submenu_list{
+        top: $header-height_px;
+        top: $header-height_rem;
+    }
+}
+
+@media all and (min-width: 1280px){
+    
+    // 변수 파트 =========================
+    $header-height_rem : 6.25rem;
+    $header-height_px : 100px;
+    
+    $submenu_list_fontsize_px : 25px;
+    $submenu_list_fontsize_rem : 1.5625rem; 
+
+    // 태블릿 스타일 시트 =========================
+    header {
+        height: $header-height_rem;
+        height: $header-height_px;
+    
+        .header_wrap {
+    
+            .header_wrap_leftside {
+                width: 30%;
+                .header_menu{
+                    display:flex;
+                    justify-content: space-between;
+                    li{
+                        width: auto;
+
+                        .border{
+                            width: 0%;
+                            background-color:#000;
+                            height: 1px;
+                            transition: 0.5s;
+                        }
+                        a{
+                            padding: 10px 0;
+                            font-size: 0.875rem;
+                            font-size: 14px;
+                        }
+                    }
+                }
+            }
+
+            .logo { 
+                width: 40%;
+                a{
+                    width: auto;
+                    img { width: 37%; }
+                }
+            }
+    
+            .header_wrap_rightside {
+                width: 30%;
+                .menu_icons {display:none;}
+
+                ul{
+                    display: flex;
+                    justify-content: flex-end;
+                    li{
+                        margin-left: 10px;
+                        width: auto;
+                        a{
+                            font-size: 0.875rem;
+                            font-size: 14px;
+                            padding: 10px;
+                        }
+                    }
+                }
+            }
+        }
+    
+        .header_submenu{
+            
+            top: $header-height_px;
+            top: $header-height_rem;
+    
+            .submenu_list{
+    
+                li{
+                    a{
+                    font-size: $submenu_list_fontsize_px;
+                    font-size: $submenu_list_fontsize_rem;
+                    padding: $submenu_list_fontsize_px/2*3 0;
+                    padding: $submenu_list_fontsize_rem/2*3 0;
+                    }
+                }
+            }
+        }
+    }
+
+    .shop_submenu_list{
+        top: $header-height_px;
+        top: $header-height_rem;
+    }
+}
+
+
+

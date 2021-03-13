@@ -1,0 +1,520 @@
+@charset "utf-8";
+
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    color: #000;
+    font-family: 'Raleway', sans-serif;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+body {
+    position: relative;
+}
+
+$header-height: 4.6875rem;
+$main-image-caption-fontsize: 1rem;
+
+.bodywrap {
+    margin-top: 3.125rem;
+    margin-top: 50px;
+    display: block;
+    width: 100%;
+
+    .main-image {
+        position: relative;
+        background-image: url(../images/Concept1.jpg);
+        background-repeat: no-repeat;
+        background-position-y: 25px;
+        background-size: 100%;
+        height: $header-height * 2;
+        filter: brightness(50%);
+        background-attachment: fixed;
+    }
+
+    .main-image_caption {
+        position: absolute;
+        color: #fff;
+        font-weight: bold;
+        top: 0%;
+        left: 0%;
+        width: auto;
+        font-size: $main-image-caption-fontsize;
+        letter-spacing: 2px;
+    }
+
+
+    .item_page {
+        margin: 0 auto;
+        margin-top: 2.5rem;
+        margin-top: 40px;
+        width: 88%;
+
+        .item_page_header {
+            position:relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding: 10px 0;
+            border-bottom: 0.5px solid #707070;
+
+            .item_page_header_title {
+                font-weight: bold;
+            }
+
+            .item_sort_title{
+                cursor:pointer;
+                width: 100px;
+                display:flex;
+                align-items: center;
+                justify-content: space-between;
+
+                span{
+                    width: auto;
+                    font-size: 10px;
+                }
+            }
+
+            img{
+                margin-top: 2px;
+                margin-right: 5px;
+                width: 5px;
+                transform:rotate(-90deg);
+            }
+
+            .item_sort{
+                opacity: 0;
+                top: 40px;
+                right:0;
+                position:absolute;
+                width: 100px;
+                background: #fff;
+                transition: all 0.4s;
+                overflow:hidden;
+                
+                .option{
+                    display:flex;
+                    flex-wrap: wrap;
+
+                    li{
+                        cursor:pointer;
+                        text-align: center;
+                        padding: 10px;
+                        font-size: 10px;
+
+                        &:hover{
+                            background-color: #ddd;
+                        }
+                    }
+
+
+                }
+        }
+    }
+
+        .item_page_list {
+            display: none;
+            width: 100%;
+            grid-template-columns: 45% 45%;
+            grid-template-rows: repeat(6, 1fr);
+            justify-content: space-between;
+            height: 100%;
+            margin-top: 25px;
+            margin-top: 1.5625rem;
+
+            &.active {
+                display: grid;
+            }
+
+            .item_page_list_items {
+                width: 100%;
+                margin-bottom: 62px;
+                margin-bottom: 3.875rem;
+
+                img {
+                    width: 100%;
+                }
+
+                .item_name {
+                    margin-top: 10px;
+                    margin-top: 0.625rem;
+                    text-align: center;
+                    font-family: '나눔스퀘어라운드';
+                    font-size: 0.6rem;
+                    letter-spacing: 1px;
+                }
+
+                .item_price {
+                    margin: 0 auto;
+                    text-align: center;
+                    font-size: 0.8rem;
+                    margin-top: 0.5rem;
+                    margin-top: 8px;
+                    font-weight: bold;
+                }
+            }
+        }
+
+        .item_page_paging {
+            margin: 0 auto;
+            width: 60%;
+            height: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .left-arrow {
+                cursor: pointer;
+                width: 0.6rem;
+
+                img {
+                    width: 100%;
+                }
+            }
+
+            .right-arrow {
+                cursor: pointer;
+                width: 0.6rem;
+
+
+                img {
+                    width: 100%;
+                    transform: rotate(180deg);
+                }
+            }
+
+            .paging_numbers {
+                display: flex;
+                align-items: center;
+                text-align: center;
+
+                span {
+                    padding: 10px;
+                    cursor: pointer;
+                    font-size: 1rem;
+                    font-family: "나눔스퀘어라운드";
+                    color: #818181;
+                    margin: 0 0.5rem;
+
+                    &.active {
+                        color: #000;
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+
+    }
+
+}
+
+@media all and (min-width: 500px) {
+
+    $header-height: 4.6875rem;
+
+    .main-image {
+        height: $header-height* 2;
+
+    }
+}
+
+
+@media all and (min-width: 768px) {
+
+    //변수 파트 =====================================
+
+    $header-height: 6.25rem;
+    $main-image-translateY: 50px;
+    $main-image-caption-fontsize: 1.25rem;
+
+    $item_page_top: 5rem;
+    $item_page_header_title_fontsize: 1.5rem;
+    $item_page_header_padding: 1.25rem;
+
+    $item_name_fontsize: 0.625rem;
+    $item_price_fontsize: 0.75rem;
+
+    .bodywrap {
+        margin-top: $header-height;
+
+        .main-image {
+            background-position-y: $main-image-translateY;
+            height: $header-height * 2;
+        }
+
+        .main-image_caption {
+            font-size: $main-image-caption-fontsize;
+        }
+
+        .item_page {
+            margin-top: $item_page_top;
+
+            .item_page_header {
+                padding: $item_page_header_padding 0;
+
+                .item_page_header_title {
+                    font-size: $item_page_header_title_fontsize;
+                }
+
+                .item_sort{
+                    top: 60px;
+                }
+
+                .item_page_sort {
+                    select {
+                        font-size: $item_page_header_title_fontsize/2;
+                    }
+                }
+            }
+
+            .item_page_list {
+                grid-template-columns: repeat(3, 29%);
+                grid-template-rows: repeat(4, 1fr);
+                margin-top: $item_page_header_padding*2.5;
+
+                .item_page_list_items {
+                    width: 100%;
+                    margin-bottom: 62px;
+                    margin-bottom: 3.875rem;
+
+                    img {
+                        width: 100%;
+                    }
+
+                    .item_name {
+                        margin-top: $item_name_fontsize * 2;
+                        text-align: center;
+                        font-family: 'Raleway';
+                        font-size: $item_name_fontsize;
+                        letter-spacing: 1px;
+
+                    }
+
+                    .item_price {
+                        text-align: center;
+                        font-size: $item_price_fontsize;
+                        margin-top: $item_price_fontsize;
+                    }
+                }
+            }
+
+            .item_page_paging {
+                margin: 0 auto;
+                width: 40%;
+                height: auto;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                .left-arrow {
+                    width: 18px;
+
+                    img {
+                        width: 100%;
+                    }
+                }
+
+                .right-arrow {
+                    width: 18px;
+
+                    img {
+                        width: 100%;
+                        transform: rotate(180deg);
+                    }
+                }
+
+            }
+
+        }
+
+    }
+
+}
+
+@media all and (min-width: 1024px) {
+
+    //변수 파트 =====================================
+
+    $header-height: 6.25rem;
+    $main-image-height: 9.375rem;
+    $main-image-translateY: -75px;
+    $main-image-caption-fontsize: 1.25rem;
+
+    $item_page_top: 5rem;
+    $item_page_header_title_fontsize: 1.5rem;
+    $item_page_header_padding: 1.25rem;
+
+    $item_name_fontsize: 0.875rem;
+    $item_price_fontsize: 1rem;
+
+    .bodywrap {
+        margin-top: $header-height;
+
+        .main-image {
+            height: $main-image-height * 2;
+            background-attachment: fixed;
+        }
+
+        .main-image_caption {
+            font-size: 30px;
+        }
+
+        .item_page {
+
+            margin-top: $item_page_top;
+
+            .item_page_header {
+                padding: $item_page_header_padding 0;
+
+                border-bottom: 0.5px solid #707070;
+
+                .item_page_header_title {
+                    font-size: $item_page_header_title_fontsize;
+                    font-weight: bold;
+                }
+
+                .item_page_header_sort {
+                    span {
+                        padding: 0 $item_page_header_title_fontsize/2;
+
+                        font-size: $item_page_header_title_fontsize/2;
+                    }
+                }
+            }
+
+            .item_page_list {
+                grid-template-columns: repeat(3, 29%);
+                grid-template-rows: repeat(4, 1fr);
+                margin-top: $item_page_header_padding*2.5;
+
+                .item_page_list_items {
+                    width: 100%;
+                    margin-bottom: 6.25rem;
+
+                    img {
+                        width: 100%;
+                    }
+
+                    .item_name {
+                        margin-top: $item_name_fontsize * 2;
+                        text-align: center;
+
+                        font-size: $item_name_fontsize;
+                        letter-spacing: 1px;
+
+
+                    }
+
+                    .item_price {
+                        text-align: center;
+                        font-size: $item_price_fontsize;
+                        margin-top: $item_price_fontsize;
+                    }
+                }
+            }
+
+            .item_page_paging {
+                margin-top: 100px;
+                width: 30%;
+
+            }
+
+        }
+
+    }
+
+}
+
+@media all and (min-width: 1280px) {
+
+    //변수 파트 =====================================
+
+    $header-height: 6.25rem;
+    $main-image-height: 13rem;
+    $main-image-translateY: 0px;
+    $main-image-caption-fontsize: 2.5rem;
+
+    $item_page_top: 5rem;
+    $item_page_header_title_fontsize: 1.875rem;
+    $item_page_header_padding: 1.875rem;
+
+    $item_name_fontsize: 0.8rem;
+    $item_price_fontsize: 1rem;
+
+    .bodywrap {
+        margin-top: $header-height;
+
+        .main-image {
+            height: $main-image-height * 2;
+            background-position-y: $main-image-translateY;
+        }
+
+        .main-image_caption {
+            font-size: 40px;
+        }
+
+        .item_page {
+            width: 70%;
+            margin-top: $item_page_top;
+
+            .item_page_header {
+                padding: $item_page_header_padding 0;
+
+
+                .item_sort{
+                    top: 70px;
+                }
+
+                .item_page_header_title {
+                    font-size: $item_page_header_title_fontsize;
+                }
+
+                .item_page_header_sort {
+                    span {
+                        padding: 0 $item_page_header_title_fontsize/2;
+                        font-size: $item_page_header_title_fontsize/2;
+                    }
+                }
+            }
+
+            .item_page_list {
+                grid-template-columns: repeat(3, 29%);
+                grid-template-rows: repeat(4, 1fr);
+                margin-top: $item_page_header_padding/2*5;
+
+                .item_page_list_items {
+                    width: 100%;
+                    margin-bottom: 6.25rem;
+
+                    img {
+                        width: 100%;
+                    }
+
+                    .item_name {
+                        margin-top: $item_name_fontsize * 2;
+                        font-size: $item_name_fontsize;
+                    }
+
+                    .item_price {
+                        text-align: center;
+                        font-size: $item_price_fontsize;
+                        margin-top: $item_price_fontsize;
+                    }
+                }
+            }
+
+            .item_page_paging {
+                width: 25%;
+            }
+
+        }
+    }
+}
